@@ -185,20 +185,20 @@ echo $? yazdığımızda 0 sonucunu alıyorsak program düzgün çalışmış ve
 
 ---Komutları Kombine Etmek---
 
---
+>>
 #Bu kullanımda kodlar sırayla çalışır. Aynı bash script yazar gibi ya da arka arkaya komut girer gibi.
 
 echo deneme ; echo denemedik
 deneme
 denemedik
---
+>>
 echo deneme && echo sesbirki && mkdir kimseyok
 deneme
 sesbirki
 
 çıktısını verir ve kimseyok adında bir dizin oluşturur.
 Bu kullanımın farkı, komutlardan biri hata verirse işi break eder. Yani devamındaki komutlar çalışmaz.
---
+>>
 echo 1 || echo 2 || echo 3
 
 #İlk kod çalışmazsa ikinci, o da çalışmazsa üçüncü çalışsın. Hiç olmadı çıksın.
@@ -213,7 +213,8 @@ Bunun mantıklı kullanımı şöyle olabilir:
 mkdir xx || echo "olmadı"
 
 Burada eğer mkdir kodu çalışmazsa kullanıcıya belli bir hata mesajı verebilir veya log dosyasına yazdırabiliriz.
---
+>>
+
 #Parantezli örnek
 
 secho 1 && echo 2 || echo 2
