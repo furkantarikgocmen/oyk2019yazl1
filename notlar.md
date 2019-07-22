@@ -123,8 +123,8 @@ ls -l Görüntülenen dizin ve dosyalar hakkında boyut ve izinler gibi detaylar
 ls -la şeklinde parametreleri birleştirmek de mümkündür.
 Daha detaylı bilgi için man sayfasına bakınız.
 
-# "." (Nokta) bulunduğumuz dizini ifade eder.
-# ".." (İki Nokta) bulunduğumuz dizinin bir üstünü ifade eder.
+#"." (Nokta) bulunduğumuz dizini ifade eder.
+#".." (İki Nokta) bulunduğumuz dizinin bir üstünü ifade eder.
 
 #Pwd
 İçinde bulunduğumuz dizini öğrenmemizi sağlar.
@@ -144,7 +144,7 @@ cd .. Bir üst dizine gitmek için.
 
 cd /full/path veya cd ../../dizin1/dizin2 şeklinde kullanılabilir.
 
-# ~ Kulllanıcının ev dizinini ifade eder.
+~ Kulllanıcının ev dizinini ifade eder.
 
 #clear Terminal görüntüsünü temizler. Kabuktaki hiç bir şey silinmez; sadece ekran kayar.
 
@@ -178,11 +178,13 @@ alias kapan="/sbin/poweroff" gibi..
 
 #echo "mesaj" Mesajı ekrana basar.
 
-# $? ile çıkış kodlarını görebiliriz. Ancak bu bir komut değil; değişkendir. Bu yüzden echo ile birlikte içeriğini görebiliriz. $? son çalışan programın exit kodunu tutar.
+$? ile çıkış kodlarını görebiliriz. Ancak bu bir komut değil; değişkendir. Bu yüzden echo ile birlikte içeriğini görebiliriz. $? son çalışan programın exit kodunu tutar.
 
 echo $? yazdığımızda 0 sonucunu alıyorsak program düzgün çalışmış ve çıkış yapmış demektir. 0 haricindeki her sonuç, bir hata mesajıdır.
 
+
 ---Komutları Kombine Etmek---
+
 --
 #Bu kullanımda kodlar sırayla çalışır. Aynı bash script yazar gibi ya da arka arkaya komut girer gibi.
 
