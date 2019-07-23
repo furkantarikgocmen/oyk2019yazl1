@@ -1,0 +1,169 @@
+1-) bios mbr'yi tetikler
+2-) mbr grub'u tetikler
+3-) grub kernel'i ram belleðe yükler
+4-) kernel /sbin/init'i tetikler
+5-) init runlevel'i tetikler
+6-) runlevel programlar /etc/rc.d/*.d/ 'da bulunur.
+
+-----------
+Harddisklerin ilk 512 byte'ýnda master boot bilgisi vardýr. bu bilgi hdd içinde boot loader var sorusunu cevaplar.
+
+init'ten sonra tetiklenecek olan RunLevel'lar:
+
+0-) Halt = Kapatýr.
+1-) Sinlge User Mod = Sadece root kullanýcý ile çalýþýr.
+2-) Multi User Without NFS = Network baðlantýsý olmadan sistemi çalýþtýrýr. (Multi user mod'da çalýþýr)
+3-) Multi User Full Mod = Standart terminal yönetim RunLevel'ý.
+4-) unused (Kullanýlmýyormýþ :|)
+5-) X11 = Kullanýcý Arayüzü Ýle Baþlatýr (GUI)
+6-) Reboot
+
+
+Debian dizin hiyerarþisi
+
+Not: ! GNU/Linux sisteminde herþey bir dosyadýr !
+& & &
+! GNU/Linux sistemlerde her bir program yalnýzca tek bir iþi yapmak için üretilmiþtir !
+
+/ = root dizini
+/bin = Kullancaðýmýz programlarýn daha önceden derlenmiþ halde gelen dosyalarýn dizinidir
+/boot = Ýþletim sisteminin açýlabilmesi için gerekli program ve ayar dosyalarýnýn bulunduðu dizindir
+/etc = Sisteme özel servis ayar dosyalarýnýn bulunduðu dizindir.
+/usr = Sisteme dair kaynaklarýmýzýn bulunduðu dizindir.
+/usr/local = Kendi Dosyalarýmýzýn veya kurduðumuz programlarýn binary'sinin tutulduðu dizindir.
+/sur/share =
+/usr/share/man = Kýlavuzlarýn tutulduðu dizindir.
+/var = Deðiþken veri dosyalarýnýn tutulduðu dizindir.(Veritabanlarý, Loglar vs.)
+/var/cache = Cache'lerin tutulduðu dizin.
+/var/lib = Sistemdeki kendi programlarýmýzýn kullandýðý kütüphanelerin bulunduðu dizindir.
+/var/log = Sistemde yer alan servislerin ürettiði loglarýn tutulduðu dizindir.
+/tmp = Birtakým programlarýn oluþturduðu geçici dosyalarýn tutulduðu dizindir. (Her reboot'ta içeriði silinir)
+/dev = Ýþletim sistemi tarafýndan tanýnan aygýtlarýn dosyalarýnýn tutulduðu dizindir. (Referanslarýnýn)
+/home = Kullanýcýlarýn çalýþma dizinidir
+/lib = Sonradan yüklenen programlarýn kütüphane'lerinin ve kernel modüllerinin tutulduðu yerdir.
+/mnt = Baþka bir diski sitetmimize baðlamak için kullanýlan dizin
+/opt = 3.parti yazýlýmlarýn kurulduðu dizindir.
+/root = Root kullanýcýsýnýn çalýþma dizinidir.
+/sbin = Sistem programlarýnýn bulunduðu binary dizinidir.
+
+-------------------------------------------
+man = Manuel uygulamasý bash komutu. //örnek : man ls;
+ls = listeleme komutu -l : liste bilgisi verir. -a : hepsini gösterir. -R : Ýçindeki dizinlerin içerðini de gösterir.
+pwd = print working directory . Hangi dizinde olduðumuzu söyler.
+cd = Dizinler arasý gezinmemizi saðlar
+~ = Ev dizinini temsil eder.
+
+Not: cd komutu parametre belirtilmediðinde home dizinine döner.
+cd - = Bir önceki bulunduðumuz dizine geri döner.
+cd . = Bulunduðumuz dizini temsil eder.
+cd .. = Bir üst dizini temsil eder.
+
+apropos = helper uygulamasý.
+
+whereis = belirtilen parametredeki programla alakalý dizinleri gösterir.
+
+file = Parametrede belirtilen dosya hakkýnda bilgi verir.
+
+which = Parametrede belirtilen uygulamanýn dosya sisteminde nerede olduðunu belirtir.
+
+whatis = Parametrede belirtilen uygulamanýn ne iþe yaradýðýný belirtir.
+
+touch = Dosyalarýn zaman damgasýný deðiþtirmeye yarar. Ayný zamanda dosya yaratmak için de kullanýlýr.
+
+mkdir = Yeni bir dizin oluþturmak için kullanýlýr.
+
+whoami = Sisteme hangi kullanýcý ile login olduðumuzu gösterir.
+
+echo = Print komutu.
+
+nano = Text editörü.
+
+cat = Ýçerik görüntüleme aracý
+
+exit = Terminali kapatýr
+
+cp = Dosya ve|veya dizin kopyalar {-r : copy directories recursively | iç içe dizinleri de kopyalar}
+
+mv = Dosya ve|veya dizin taþýr
+
+rm = dosya ve|veya dizin siler | çoklu silme : rm -r notlar/{1..15}gun , rm *.gun
+
+history = Geçmiþ terminal komutlarýný gösterir {
+
+	history 10 : son 10 komutu verir. 
+
+	-w parametresi verildiðinde son oturumda yazýlan komutlarý .bash_history dosyasýna kaydeder.
+
+	-c son oturumda yazýlan komutlarý .bash_history dosyasýna kaydetmeden siler
+
+}
+
+!! = son çalýþtýrýlan komutu çalýþtýrýr | !5 = sondan 5.komutu çalýþtýrýr.
+
+echo $? = Son çalýþtýrýlan komutun çýkýþ kodunu verir. Eðer 0 dýþýnda bir rakam verdiyse program baþarýsýz olmuþtur.
+
+/etc/motd = Message of the day. Açýlýþta ekrana yazýlan text.
+
+more = imagination uygulamasý. Ýçerik göstermeye yarar. Eskidir, Yeni versiyonu ' less '
+
+less = imagination uygulamasý. More'un yeni bir versiyonudur.{
+
+	/ : Arama iþlemi için kullanýlýr. Devamýnda n'ye basýlarak bir sonraki sonuca geçilir.
+
+}
+
+uname = Ýþletim sistemi bilgisi verir. -a parametresi ile kullanýlýr.
+
+lsb_release = Ýþletim sistemi bilgisi verir. -a parametresi ile kullanýlýr.(Debian türevlerinde)
+
+/etc/centos-release = Ýþletim sistemi bilgisi barýndýrýr. (Redhat türevlerinde kullanýlýr.)
+
+lscpu = CPU bilgisi verir.
+
+free = RAM bilgisi verir
+
+lspci = PCI aygýtlarý hakkýnda bilgi verir.
+
+uptime = Çalýþma bilgisi verir.
+
+--------------------------------
+
+BASH SCRÝPT YAZMAK...
+
+script'in ilk satýrý ' #!/user/bin/bash ' olmalýdýr.
+
+Örnek bir script:
+
+#!/usr/bin/bash
+user=$(whoami)
+echo "echo ${user}"
+$user # Bunu çözemedim
+
+ÇIKIÞ KODU...
+
+script'in sonuna exit 0 yazýlarak çýkýþ kodu verilmesi saðlanýr. Hatalý dahi olsa exit 0 verilirse çýkýþ kodu daima 0 olur.
+
+OPERTAÖRLER...
+
+; = Kendinden önceki komut çalýþmazsa dahi kendinden sonraki komutu çalýþtýrýr.
+
+&& = Kendinden önceki komut'un çalýþmamasý durumunda kendinden sonraki komutu çalýþtýrmaz.
+
+|| = Kendinden önceki komut çalýþmazsa kendinden sonraki komutu çalýþtýrýr.
+
+die = þart saðlanmazsa exit code 0 vererek programý öldürür.
+-------------
+terminalde deðiþken atamak örneði;
+
+pwd_path=$(which pwd)
+echo $pwd_path
+---------------
+.bashrc = bash ayarlarýnýn tutulduðu config dosyasýdýr
+
+source .bashrc = .bashrc dosyasý reload eder.
+
+--------------------
+
+Linux Sertifikasyonlar :{"RedHat" : ZHCSA (BASÝT),RHCE (ZOR), "Unkown" : LPI}
+
+--------------------
